@@ -16,10 +16,10 @@
             <div class="span8">
                 <section id="typography">
                 <div class="page-header">
-                    <h1>질문하기</h1>
+                    <h1>질문수정하기</h1>
                 </div>
                 
-                <form name="question" method="post" action="/qna/create.next">
+                <form name="question" method="post" action="/qna/modify.next">
                     <table>
                     	<tr>
                             <td class="span1">글쓴이</td>
@@ -34,7 +34,7 @@
                             <td><textarea name="contents" rows="5" class="span7"></textarea></td>
                         </tr>
                     </table>
-                    <input type="submit" class="btn btn-primary pull-right" value="질문하기" />
+                    <input type="submit" class="btn btn-primary pull-right" value="수정완료" />
                 </form>
             </div>
         </div>

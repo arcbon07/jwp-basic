@@ -31,7 +31,13 @@
 	                </tr>
 	                </c:forEach>
 		        </table>
-		        <a class="btn btn-primary pull-right" href="/qna/form.next">질문하기</a>
+		        <c:choose>
+                <c:when test="${not empty user}">
+                <a class="btn btn-primary pull-right" href="/qna/form.next">질문하기</a>
+                </c:when>
+                <c:otherwise>
+                </c:otherwise>
+                </c:choose>
 			</div>
 		</div>
 	</div>

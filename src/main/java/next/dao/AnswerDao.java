@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
-import next.model.Answer;
 import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
+import next.model.Answer;
 
 public class AnswerDao {
     private Long newAnswerId() {
@@ -60,5 +60,11 @@ public class AnswerDao {
         };
 
         return jdbcTemplate.query(sql, rm, questionId);
+    }
+    
+    public void delete(long answerId){
+    	JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    	String sql = "DELETE FROM ANSWERS WHERE answerid = ?";
+    	jdbcTemplate.update(sql, answerId);
     }
 }

@@ -3,17 +3,22 @@ package core.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import next.web.qna.APIListController;
 import next.web.qna.AddAnswerController;
+import next.web.qna.DeleteAnswerController;
 import next.web.qna.ListController;
+import next.web.qna.QuestionController;
+import next.web.qna.QuestionModifyController;
 import next.web.qna.ShowController;
+import next.web.qna.ShowQuestionModifyController;
 import next.web.user.CreateController;
 import next.web.user.LoginController;
 import next.web.user.LogoutController;
 import next.web.user.UpdateController;
 import next.web.user.UpdateFormController;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class RequestMapping {
 	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -32,6 +37,11 @@ public class RequestMapping {
 		mappings.put("/qna/show.next", new ShowController());
 		mappings.put("/api/qna/addanswer.next", new AddAnswerController());
 		mappings.put("/qna/form.next", new ForwardController("/qna/form.jsp"));
+		mappings.put("/qna/create.next", new QuestionController());
+		mappings.put("/api/qna/deleteanswer.next", new DeleteAnswerController());
+		mappings.put("/api/list.next", new APIListController());
+		mappings.put("/qna/formModify.next", new ShowQuestionModifyController());
+		mappings.put("/qna/modify.next", new QuestionModifyController());
 		
 		
 		logger.info("Initialized Request Mapping!");

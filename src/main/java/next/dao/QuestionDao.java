@@ -11,6 +11,23 @@ import core.jdbc.RowMapper;
 
 public class QuestionDao {
 
+	public void countofCommentPlus(long questionId){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS set countOfComment = countOfComment + 1  "+ "WHERE questionId = ?";
+		jdbcTemplate.update(sql,questionId);
+	}
+	public void countofCommentMinus(long questionId){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS set countOfComment = countOfComment - 1  "+ "WHERE questionId = ?";
+		jdbcTemplate.update(sql,questionId);
+	}
+	
+	public void modify(long questionId){
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS set countOfComment = countOfComment - 1  "+ "WHERE questionId = ?";
+		jdbcTemplate.update(sql,questionId);
+	}
+	
 	public void insert(Question question) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfComment) VALUES (?, ?, ?, ?, ?)";
